@@ -75,13 +75,13 @@
                                 <el-input v-model="name" />
                             </el-form-item>
                             <el-form-item label="email">
-                                <el-input v-model="form1.email" />
+                                <el-input v-model="email" />
                             </el-form-item>
                             <el-form-item label="Password" prop="pass">
-                                <el-input v-model="form1.password" type="password" autocomplete="off" show-password />
+                                <el-input v-model="password" type="password" autocomplete="off" show-password />
                             </el-form-item>
                             <el-form-item label="Confirm" prop="checkPass">
-                                <el-input v-model="form1.checkPass" type="password" autocomplete="off" show-password />
+                                <el-input v-model="checkPass" type="password" autocomplete="off" show-password />
                             </el-form-item>
                         </el-card>
                         <el-button @click="dialogFormVisible = false" style="margin-top:10px">annuler</el-button>
@@ -138,17 +138,12 @@
         </div>
 
     </el-main>
-    <el-footer>
-        <el-card class="box-footer">
-   
-   <el-icon ><School /></el-icon>
-   
-  </el-card>
-    </el-footer>
+    <Footer />
 </template>
 
 <script setup>
     import NavBar from '../components/NavBar.vue'
+    import Footer from '../components/Footer.vue'
     const dialogFormVisible = ref(false)
     const dialogForm2Visible = ref(false)
     import {
@@ -158,6 +153,9 @@
 
     const labelPosition = ref('left')
     const name = ref('')
+    const email=ref('')
+    const password=ref('')
+    const checkPass=ref('')
     const form1 = reactive({
         name: '',
         email: '',
@@ -179,11 +177,11 @@
     }
     const modifierpass = () => {
 
-        if (form1.password === form1.checkPass && isNaN(form1.password && name)) {
+        if (password.value === checkPass.value && isNaN(password && name)) {
             form1.name = name.value;
+            form1.email=email.value;
+            form1.password=password.value;
             console.log(form1.name);
-            form1.email = form1.email,
-                form1.password = form1.password
             dialogFormVisible.value = false
         } else
             alert('les mots de passe sont invalid');
@@ -225,9 +223,6 @@
 }
 
 
-.box-footer{
-  width: 4800px; 
-  height: 250px;
-}
+
 
 </style>

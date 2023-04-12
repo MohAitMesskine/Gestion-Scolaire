@@ -17,12 +17,12 @@
         </div>
       </div>
       <div class="table-info">
-        <el-table border ref="multipleTableRef" :data="pageData" style="width: 100%"
+        <el-table border ref="multipleTableRef" :data="pageData" style="width: 1000px"
           @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="50" />
-          <el-table-column prop="name" label="Name" width="80" />
+          <el-table-column prop="name" label="Name" width="180" />
           <el-table-column prop="email" label="Email" width="150" />
-          <el-table-column prop="address" label="Address" width="300" show-overflow-tooltip />
+          <el-table-column prop="address" label="Address" width="150" show-overflow-tooltip />
           <el-table-column prop="tag" label="resultas" width="120" :filters="[
             { text: 'valider', value: 'valider' },
             { text: 'rattrapage', value: 'rattrapage' }
@@ -134,42 +134,42 @@
       tag: 'valider'
     },
     {
-      id: '0',
+      id: '3',
       name: 'ait messkine',
       email: 'aitmeloul@163.com',
       address: 'lherch, ait meloul',
       tag: 'ratrapage'
     },
     {
-      id: '1',
+      id: '4',
       name: 'mohmad',
       email: 'emaail@163.com',
       address: 'agadir',
       tag: 'valider'
     },
     {
-      id: '2',
+      id: '5',
       name: 'Alice2',
       email: '123@163.com',
       address: 'Ait meloul ',
       tag: 'valider'
     },
     {
-      id: '0',
+      id: '6',
       name: 'ait messkine',
       email: 'aitmeloul@163.com',
       address: 'lherch, ait meloul',
       tag: 'ratrapage'
     },
     {
-      id: '1',
+      id: '7',
       name: 'mohmad',
       email: 'emaail@163.com',
       address: 'agadir',
       tag: 'valider'
     },
     {
-      id: '2',
+      id: '8',
       name: 'Alice2',
       email: '123@163.com',
       address: 'Ait meloul ',

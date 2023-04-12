@@ -7,15 +7,7 @@ const nav =ref(false);
 
 <template>
            
-     
- <!-- <div class="common-layout">
-    <el-container>
-      <el-header >
-       <NavBar   />
-      </el-header>   
-   
-    </el-container>
-  </div> -->
+
 
 <router-view/>
 

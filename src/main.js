@@ -23,6 +23,5 @@ app.use(ElementPlus)
 DataTable.use(DataTablesCore);
 app.use(createPinia())
 app.use(router)
-
 app.use(i18n)
 app.mount('#app')

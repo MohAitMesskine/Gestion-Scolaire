@@ -2,11 +2,11 @@
 <el-header >
        <NavBar   />
       </el-header>  
-    <el-main >
+    <el-main style="height:450px" >
  
       <Main  />
       </el-main>
-      <el-footer class="footer"><Footer /></el-footer>
+      <el-footer><Footer /></el-footer>
 </template>
 
 <script>
@@ -17,7 +17,7 @@ export default {
  components: {
   NavBar,
    Main,
-   Footer,
+  Footer,
   }
 
 
