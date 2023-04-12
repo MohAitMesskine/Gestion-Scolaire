@@ -2,34 +2,98 @@
     <el-header>
         <NavBar />
     </el-header>
-    <el-main>
+    <el-main >
         <el-row :gutter="30">
             <el-col :span="11">
                 <el-card shadow="always">
                     <h4>Les Donnée Personnel</h4>
                     <!-- <el-form :label-position="labelPosition" label-width="100px" :model="form1"
                         style="max-width: 460px"> -->
-                        <el-card class="box-card2">
+                    <el-card class="box-card2">
 
-                            <el-form-item  label="Name">
-                                <el-input  v-model="form1.name"  disabled />
-                                <!-- <b>{{form1.name}}</b> -->
-                            </el-form-item>
-                            <el-form-item label="email" >
-                                <el-input v-model="form1.email" disabled />
-                            </el-form-item>
-                            <el-form-item label="Password" prop="pass">
-                                <el-input v-model="form1.password" type="text" autocomplete="off" disabled  />
-                            </el-form-item>
-                            
-                        </el-card>
-                        <el-button type="primary" style="margin-left:450px;margin-top:10px" plain @click="changerpass">Changer</el-button>
+                        <el-form-item label="Name">
+                            <!-- <el-input  v-model="form1.name"  disabled /> -->
+                            <b>{{form1.name}}</b>
+                        </el-form-item>
+                        <el-form-item label="email">
+                            <el-input v-model="form1.email" disabled />
+                        </el-form-item>
+                        <el-form-item label="Password" prop="pass">
+                            <el-input v-model="form1.password" type="text" autocomplete="off" disabled />
+                        </el-form-item>
+
+                    </el-card>
+                    <el-button type="primary" style="margin-left:450px;margin-top:10px" plain @click="changerpass">
+                        Changer</el-button>
                     <!-- </el-form> -->
                 </el-card>
             </el-col>
             <el-col :span="30">
 
 
+                <el-card shadow="always">
+                    <h4>Les Donnée Profissionel</h4>
+                    <el-card class="box-card">
+                        <el-form :label-position="labelPosition" label-width="100px" :model="form2"
+                            style="max-width: 460px">
+                            <el-form-item label="Ecole" prop="ecole">
+                                <el-input v-model="form2.ecole" disabled />
+                            </el-form-item>
+                            <el-form-item label="La branche" prop="branche">
+                                <el-input v-model="form2.branche" disabled />
+
+
+
+                            </el-form-item>
+
+                            <el-form-item label="Niveau " prop="niveau">
+                                <el-input v-model="form2.niveau" type="text" disabled />
+
+                            </el-form-item>
+                            <el-form-item label="Année " prop="annee">
+                                <el-input v-model="form2.annee" type="text" disabled />
+
+                            </el-form-item>
+
+                        </el-form>
+                    </el-card>
+                    <el-button type="primary" style="margin-left:450px;margin-top:10px" plain @click="changerdonnee">
+                        Changer</el-button>
+                </el-card>
+            </el-col>
+
+        </el-row>
+        <div class="dialog-form">
+            <el-dialog v-model="dialogFormVisible" :title="Modifier" close-on-press-escape>
+                <el-card shadow="always">
+                    <h4>Les Donnée Personnel</h4>
+                    <el-form :label-position="labelPosition" label-width="100px" :model="form1"
+                        style="max-width: 460px">
+                        <el-card class="box-card2">
+
+                            <el-form-item label="Name">
+                                <el-input v-model="name" />
+                            </el-form-item>
+                            <el-form-item label="email">
+                                <el-input v-model="form1.email" />
+                            </el-form-item>
+                            <el-form-item label="Password" prop="pass">
+                                <el-input v-model="form1.password" type="password" autocomplete="off" show-password />
+                            </el-form-item>
+                            <el-form-item label="Confirm" prop="checkPass">
+                                <el-input v-model="form1.checkPass" type="password" autocomplete="off" show-password />
+                            </el-form-item>
+                        </el-card>
+                        <el-button @click="dialogFormVisible = false" style="margin-top:10px">annuler</el-button>
+                        <el-button type="primary" style="margin-top:10px" plain @click="modifierpass">Modifier
+                        </el-button>
+                    </el-form>
+                </el-card>
+            </el-dialog>
+        </div>
+
+        <div class="dialog-form2">
+            <el-dialog v-model="dialogForm2Visible" :title="Modifier" close-on-press-escape>
                 <el-card shadow="always">
                     <h4>Les Donnée Profissionel</h4>
                     <el-card class="box-card">
@@ -58,62 +122,42 @@
                                 </el-select>
                             </el-form-item>
                             <el-form-item label="Année " prop="annee">
-                                <!-- <el-input v-model="form2.annee" type="text" /> -->
-                                <el-select v-model="form2.annee" placeholder="choisir une annee" style="width:860px">
+                                <el-input v-model="form2.annee"  min="1900" max="2099" step="1"  value="2023" />
+                                <!-- <el-select v-model="form2.annee" placeholder="choisir une annee" style="width:860px">
                                     <el-option label="L1" value="l1" />
                                     <el-option label="L2" value="l2" />
                                     <el-option label="L3" value="l3" />
-                                </el-select>
+                                </el-select> -->
                             </el-form-item>
-
+                            <el-button @click="dialogForm2Visible = false" style="margin-top:10px">annuler</el-button>
+                            <el-button type="primary" style="margin-top:10px" plain @click="modifierdonnee">Modifier</el-button>
                         </el-form>
                     </el-card>
                 </el-card>
-            </el-col>
-
-        </el-row>
-<div class="dialog-form">
-        <el-dialog v-model="dialogFormVisible" :title="Modifier"
-          close-on-press-escape>
-          <el-card shadow="always">
-                    <h4>Les Donnée Personnel</h4>
-                    <el-form :label-position="labelPosition" label-width="100px" :model="form1"
-                        style="max-width: 460px">
-                        <el-card class="box-card2">
-
-                            <el-form-item label="Name">
-                                <el-input v-model="form1.name" />
-                            </el-form-item>
-                            <el-form-item label="email">
-                                <el-input v-model="form1.email" />
-                            </el-form-item>
-                            <el-form-item label="Password" prop="pass">
-                                <el-input v-model="form1.password" type="password" autocomplete="off" show-password  />
-                            </el-form-item>
-                            <el-form-item label="Confirm" prop="checkPass">
-                                <el-input v-model="form1.checkPass" type="password" autocomplete="off"  show-password  />
-                            </el-form-item>
-                        </el-card>
-                         <el-button @click="dialogFormVisible = false"  style="margin-top:10px">annuler</el-button>
-                        <el-button type="primary" style="margin-top:10px" plain @click="modifierpass" >Modifier</el-button>
-                    </el-form>
-                </el-card>
-        </el-dialog>
-      </div>
+            </el-dialog>
+        </div>
 
     </el-main>
+    <el-footer>
+        <el-card class="box-footer">
+   
+   <el-icon ><School /></el-icon>
+   
+  </el-card>
+    </el-footer>
 </template>
 
 <script setup>
     import NavBar from '../components/NavBar.vue'
     const dialogFormVisible = ref(false)
+    const dialogForm2Visible = ref(false)
     import {
         reactive,
         ref
     } from 'vue'
 
     const labelPosition = ref('left')
-
+    const name = ref('')
     const form1 = reactive({
         name: '',
         email: '',
@@ -127,27 +171,38 @@
         annee: ''
     })
 
-     
- const changerpass= () => {
-    // dialogFormTitle.value = 'add'
-    dialogFormVisible.value = true
-    form1.value = {}
-  }
-   const modifierpass= () => {
-   
-    if(form1.password===form1.checkPass &&  isNaN(form1.password && form1.name)){
-         form1.name =form1.name,         
-       
-          form1.email=form1.email,
-         form1.password= form1.password
-         dialogFormVisible.value = false
-    }
-    else
-    alert('les mots de passe sont invalid');
-   
-   
-  }
 
+    const changerpass = () => {
+
+        dialogFormVisible.value = true
+        form1.value = {}
+    }
+    const modifierpass = () => {
+
+        if (form1.password === form1.checkPass && isNaN(form1.password && name)) {
+            form1.name = name.value;
+            console.log(form1.name);
+            form1.email = form1.email,
+                form1.password = form1.password
+            dialogFormVisible.value = false
+        } else
+            alert('les mots de passe sont invalid');
+
+
+    }
+    const nom =form1.name;
+    const changerdonnee = () => {
+
+        dialogForm2Visible.value = true
+        form2.value = {}
+    }
+    const modifierdonnee = ()=>{
+  form2.annee=form2.annee,
+  form2.branche=form2.branche
+  form2.ecole=form2.ecole
+  form2.niveau=form2.niveau
+  dialogForm2Visible.value=false
+    }
 </script>
 
 <style scoped>
@@ -157,7 +212,22 @@
 
     .box-card2 {
         width: 580px;
-
-
     }
+    .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  font-size: 140px;
+  
+}
+
+
+.box-footer{
+  width: 4800px; 
+  height: 250px;
+}
+
 </style>
