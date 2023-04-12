@@ -213,7 +213,8 @@
   const tableDataCopy = Object.assign(tableData.value)
   const handleQueryInput = val => {
     if (val.length > 0) {
-      tableData.value = tableData.value.filter(item => {
+      // alert(val.length)
+        pageData.value = pageData.value.filter(item => {
         console.log('val----', val)
         return item.name.toLowerCase().match(val)
       })

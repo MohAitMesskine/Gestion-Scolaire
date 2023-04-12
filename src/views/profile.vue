@@ -12,8 +12,8 @@
                     <el-card class="box-card2">
 
                         <el-form-item label="Name">
-                            <!-- <el-input  v-model="form1.name"  disabled /> -->
-                            <b>{{form1.name}}</b>
+                            <el-input  v-model="form1.name"  disabled />
+                            <!-- <b>{{form1.name}}</b> -->
                         </el-form-item>
                         <el-form-item label="email">
                             <el-input v-model="form1.email" disabled />
@@ -100,13 +100,13 @@
                         <el-form :label-position="labelPosition" label-width="100px" :model="form2"
                             style="max-width: 460px">
                             <el-form-item label="Ecole" prop="ecole">
-                                <el-input v-model="form2.ecole" />
+                                <el-input v-model="ecole" />
                             </el-form-item>
                             <el-form-item label="La branche" prop="branche">
                                 <!-- <el-input v-model="form2.branche" /> -->
 
 
-                                <el-select v-model="form2.branche" placeholder="choix" style="width:860px">
+                                <el-select v-model="branche" placeholder="choix" style="width:860px">
                                     <el-option label="Informatique" value="informatique" />
                                     <el-option label="maths" value="maths" />
                                     <el-option label="physique" value="physique" />
@@ -115,14 +115,14 @@
 
                             <el-form-item label="Niveau " prop="niveau">
                                 <!-- <el-input v-model="form2.niveau" type="text" /> -->
-                                <el-select v-model="form2.niveau" placeholder="choix" style="width:860px">
+                                <el-select v-model="niveau" placeholder="choix" style="width:860px">
                                     <el-option label="L1" value="l1" />
                                     <el-option label="L2" value="l2" />
                                     <el-option label="L3" value="l3" />
                                 </el-select>
                             </el-form-item>
                             <el-form-item label="Année " prop="annee">
-                                <el-input v-model="form2.annee"  min="1900" max="2099" step="1"  value="2023" />
+                                <el-input v-model="annee"  type="text" value="2023" />
                                 <!-- <el-select v-model="form2.annee" placeholder="choisir une annee" style="width:860px">
                                     <el-option label="L1" value="l1" />
                                     <el-option label="L2" value="l2" />
@@ -156,6 +156,10 @@
     const email=ref('')
     const password=ref('')
     const checkPass=ref('')
+    const annee =ref('');
+    const ecole=ref('');
+    const branche=ref('');
+    const niveau=ref('');
     const form1 = reactive({
         name: '',
         email: '',
@@ -188,17 +192,18 @@
 
 
     }
-    const nom =form1.name;
+    // const nom =form1.name;
     const changerdonnee = () => {
 
         dialogForm2Visible.value = true
         form2.value = {}
     }
+
     const modifierdonnee = ()=>{
-  form2.annee=form2.annee,
-  form2.branche=form2.branche
-  form2.ecole=form2.ecole
-  form2.niveau=form2.niveau
+  form2.annee=annee.value;
+  form2.branche=branche.value;
+  form2.ecole=ecole.value;
+  form2.niveau=niveau.value;
   dialogForm2Visible.value=false
     }
 </script>
