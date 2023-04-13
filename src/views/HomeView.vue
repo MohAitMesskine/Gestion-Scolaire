@@ -5,7 +5,7 @@
     <el-main >
      <div class="main">
         <h1 class="h1">
-    Bienvenu {{x}}
+    {{ $t("main.hello") }} {{x}}
    
     </h1>
 </div>
