@@ -18,7 +18,7 @@
       <el-card shadow="never">  <el-icon size="30px" ><PhoneFilled /></el-icon> <p > Email</p> <strong>mohamed@gmail.com</strong></el-card>
     </el-col>
   </el-row>
-      <p style="text-align:center;">©aitmesskine</p>
+      <p style="text-align:center;">©aitmesskine </p>
    <!-- <el-icon size="30px"  ><School /></el-icon> <p > Adresse:</p> <strong>Agadir</strong> -->
  
   </el-card>

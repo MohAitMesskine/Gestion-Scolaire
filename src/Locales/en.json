@@ -1,11 +1,11 @@
 {
     "main": {
-      "hello": "home"
+      "hello": "welcome"
     },
+    "hello":"welcome"
 
 
     
-    "home": "home"
      
 
 

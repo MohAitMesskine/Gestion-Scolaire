@@ -23,13 +23,14 @@
           <el-table-column prop="name" label="Name" width="180" />
           <el-table-column prop="email" label="Email" width="150" />
           <el-table-column prop="address" label="Address" width="150" show-overflow-tooltip />
+          <el-table-column prop="note" label="note" width="50" show-overflow-tooltip />
           <el-table-column prop="tag" label="resultas" width="120" :filters="[
             { text: 'valider', value: 'valider' },
             { text: 'rattrapage', value: 'rattrapage' }
           ]" :filter-method="filterTag" filter-placement="bottom-end">
             <template #default="scope">
-              <el-tag :type="scope.row.tag === 'valider' ? 'green' : 'danger'" disable-transitions>
-                {{ scope.row.tag }}
+              <el-tag :type="scope.row.note >=10? 'green' : 'danger'" disable-transitions>
+                {{ scope.row.note >=10? 'valide' : 'rattrapage'}}
               </el-tag>
             </template>
           </el-table-column>
@@ -70,6 +71,9 @@
             </el-form-item>
             <el-form-item label="adresse" :label-width="formLabelWidth">
               <el-input name="adresse" v-model="form.address" />
+            </el-form-item>
+             <el-form-item label="La note" :label-width="formLabelWidth">
+              <el-input name="note" v-model="form.note" />
             </el-form-item>
             <el-form-item label="Ajouter étudiant" :label-width="formLabelWidth">
               <el-select v-model="form.tag" placeholder="choix">
@@ -117,13 +121,15 @@
       name: 'ait messkine',
       email: 'aitmeloul@163.com',
       address: 'lherch, ait meloul',
-      tag: 'ratrapage'
+      note:10,
+      tag: ''
     },
     {
       id: '1',
       name: 'mohmad',
       email: 'emaail@163.com',
       address: 'agadir',
+      note: 9,
       tag: 'valider'
     },
     {
@@ -131,6 +137,7 @@
       name: 'Alice2',
       email: '123@163.com',
       address: 'Ait meloul ',
+      note: 10,
       tag: 'valider'
     },
     {
@@ -138,6 +145,7 @@
       name: 'ait messkine',
       email: 'aitmeloul@163.com',
       address: 'lherch, ait meloul',
+      note: 10,
       tag: 'ratrapage'
     },
     {
@@ -145,6 +153,7 @@
       name: 'mohmad',
       email: 'emaail@163.com',
       address: 'agadir',
+      note: 11,
       tag: 'valider'
     },
     {
@@ -152,6 +161,7 @@
       name: 'Alice2',
       email: '123@163.com',
       address: 'Ait meloul ',
+      note: 11,
       tag: 'valider'
     },
     {
@@ -159,6 +169,7 @@
       name: 'ait messkine',
       email: 'aitmeloul@163.com',
       address: 'lherch, ait meloul',
+      note: 11,
       tag: 'ratrapage'
     },
     {
@@ -166,6 +177,7 @@
       name: 'mohmad',
       email: 'emaail@163.com',
       address: 'agadir',
+      note: 11,
       tag: 'valider'
     },
     {
@@ -173,6 +185,7 @@
       name: 'Alice2',
       email: '123@163.com',
       address: 'Ait meloul ',
+      note: 11,
       tag: 'valider'
     },
 
@@ -184,6 +197,7 @@
     name: '',
     email: '',
     address: '',
+    note:'',
     tag: '',
 
   })
@@ -248,7 +262,8 @@
           name: form.name,
           email: form.email,
           address: form.address,
-          tag: form.tag,
+          note:form.note,
+          validation: form.note>=10?"valider":"rattrapage",
 
 
         })

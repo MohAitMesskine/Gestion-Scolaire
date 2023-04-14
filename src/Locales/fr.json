@@ -1,8 +1,8 @@
 {
     "main": {
-        "hello": "aceuil"
+        "hello": "bienvenu"
       },
-
-    "home": "aceuil"
+   "hello":"bienvenu"
+    
      
 }
