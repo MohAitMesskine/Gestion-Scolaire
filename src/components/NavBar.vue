@@ -17,7 +17,7 @@
     />
     </el-menu-item>
     <div class="flex-grow" />
-    <el-menu-item > <router-link to="/home">{{ $t("home") }}</router-link> |
+    <el-menu-item > <router-link to="/home">  {{ $t("main.hello") }}</router-link> |
             
             </el-menu-item>
     <el-sub-menu index="2">
