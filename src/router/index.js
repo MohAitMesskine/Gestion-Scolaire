@@ -36,6 +36,11 @@ const router = createRouter({
      
     },
     {
+    path:'/inscription',
+    name:'inscription',
+    component: () => import('../views/inscription.vue')
+    },
+    {
       path: "/:pathMatch(.*)*",
       
       component: () => import("../views/404.vue"),
