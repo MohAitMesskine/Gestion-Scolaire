@@ -1,9 +1,9 @@
 <template>
   <NavBar />
 
-  <Dialog :Visible="true" />
+  <Dialog  />
   <el-main class="container " style="margin-top:40px">
-    <el-button text @click="Visible">
+    <el-button text @click="() => modalStore.showDialogue = true">
       ajouter un etudiant
     </el-button>
     <el-table :data="filterTableData" style="width: 100%">
@@ -38,63 +38,30 @@
   } from 'vue';
   import NavBar from "../components/NavBar.vue"
   import Dialog from "../components/dialog.vue"
+  import { useModalStore } from '../stores/modals'
+  import { useDataStore } from '../stores/data'
+    const modalStore = useModalStore()
+    const dataStrore= useDataStore()
   defineProps({
     Visible: Boolean
   })
   const Visible = ref(true)
-  interface User {
-    date: string
-    name: string
-    address: string
-    annee: number
-    niveau: string
-
-  }
-
+ 
   const search = ref('')
   const filterTableData = computed(() =>
-    tableData.filter(
+    dataStrore.tableData.filter(
       (data) =>
       !search.value ||
       data.name.toLowerCase().includes(search.value.toLowerCase())
     )
   )
   const handleEdit = (index: number, row: User) => {
-    // tableData.splice(index,1)
-    // tableData.remove()
     console.log(index, row)
   }
 
 
-  const tableData: User[] = [{
-      date: '2016-05-03',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles',
-      annee: 2020,
-      niveau: 'L3'
-    },
-    {
-      date: '2016-05-02',
-      name: 'John',
-      address: 'No. 189, Grove St, Los Angeles',
-      annee: 2021,
-      niveau: 'L3'
-    },
-    {
-      date: '2016-05-04',
-      name: 'Morgan',
-      address: 'No. 189, Grove St, Los Angeles',
-      annee: 2020,
-      niveau: 'L1'
-    },
-    {
-      date: '2016-05-01',
-      name: 'Jessy',
-      address: 'No. 189, Grove St, Los Angeles',
-      annee: 2020,
-      niveau: 'L3'
-    },
-  ]
+  
+  
   const confirmEvent = () => {
   console.log('confirm!')
 }
