@@ -1,4 +1,4 @@
-<template>
+<template class="container " >
   <NavBar />
   <Dialog  />
   <el-main class="container " style="margin-top:40px">
@@ -26,6 +26,9 @@
       </el-table-column>
     </el-table>
   </el-main>
+  <el-footer style="margin-top:50px">
+  <Footer />
+  </el-footer>
 </template>
 
 <script lang="ts" setup>
@@ -35,6 +38,7 @@
   } from 'vue';
   import NavBar from "../components/NavBar.vue"
   import Dialog from "../components/dialog.vue"
+  import Footer from "../components/Footer.vue"
   import { useModalStore } from '../stores/modals'
   import { useDataStore } from '../stores/data'
     const modalStore = useModalStore()
@@ -57,17 +61,20 @@
   
   }
 const handleClick=( index: number, row: User)=>{
-console.log(index, row)
+// console.log(index, row)
 modalStore.showDialogue = true
- dataStrore.form.nom=row.name
- dataStrore.form.annee=row.annee
- alert(dataStrore.form.nom)
+const data ={
+  name:row.name.value,
+  niveau:row.name.value,
+  annee:row.annee.value
+ }
+ dataStrore.form=data
 }
 
   
   
-  const confirmEvent = (index: number) => {
-
+  const confirmEvent = (index: number,row: User) => {
+  
     dataStrore.tableData.splice(index,1)
     console.log('confirm!')
 }

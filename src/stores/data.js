@@ -3,9 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useDataStore = defineStore('data', () => {
     const form = ref({
-      nom :'',
-      niveau:'',
-      annee:''
+    
     })
     const tableData = ref([{
         // date: '2016-05-03',

@@ -54,6 +54,9 @@ dataStrore.tableData.push(data)
 modalStore.showDialogue=false
 
 }
+const showdata=(index: number, row: User)=>{
+
+}
 </script>
 <style scoped>
 .dialog-footer button:first-child {
