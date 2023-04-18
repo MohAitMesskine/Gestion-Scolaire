@@ -218,7 +218,6 @@ const currentRowId = ref(0)
 
   const handleSizeChange = (s) => {
     pageSize.value = s;
-
     pageData.value = tableData.value.slice(from.value, s + from.value);
   }
 

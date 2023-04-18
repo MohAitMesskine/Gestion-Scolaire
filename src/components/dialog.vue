@@ -15,10 +15,10 @@
                             </el-form-item>
                             <el-form-item label="Année " prop="annee">
                                 <el-input v-model="formdata.annee"  type="text" value="2023" />
-                                
                             </el-form-item>
                             
                         </el-form>
+
     <template #footer>
       <div class="dialog-footer">
         <el-button @click="outerVisible = false">Cancel</el-button>

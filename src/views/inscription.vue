@@ -1,6 +1,5 @@
 <template>
   <NavBar />
-
   <Dialog  />
   <el-main class="container " style="margin-top:40px">
     <el-button text @click="() => modalStore.showDialogue = true">
@@ -15,7 +14,7 @@
           <el-input v-model="search" size="small" placeholder="Type to search" />
         </template>
         <template #default="scope">
-          <el-button link type="primary" size="small" @click="handleClick">Detail</el-button>
+          <el-button link type="primary" size="small" @click="handleClick( scope.$index, scope.row)">Detail</el-button>
           <el-button size="small" @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
           <el-popconfirm confirm-button-text="Yes" cancel-button-text="No" :icon="InfoFilled" icon-color="#626AEF"
             title="Vous vraiment supprimer?" @confirm="confirmEvent" @cancel="cancelEvent">
@@ -23,8 +22,6 @@
               <el-button size="small" type="danger">Delete</el-button>
             </template>
           </el-popconfirm>
-
-
         </template>
       </el-table-column>
     </el-table>
@@ -57,13 +54,22 @@
   )
   const handleEdit = (index: number, row: User) => {
     console.log(index, row)
+  
   }
-
+const handleClick=( index: number, row: User)=>{
+console.log(index, row)
+modalStore.showDialogue = true
+ dataStrore.form.nom=row.name
+ dataStrore.form.annee=row.annee
+ alert(dataStrore.form.nom)
+}
 
   
   
-  const confirmEvent = () => {
-  console.log('confirm!')
+  const confirmEvent = (index: number) => {
+
+    dataStrore.tableData.splice(index,1)
+    console.log('confirm!')
 }
 const cancelEvent = () => {
   console.log('cancel!')
