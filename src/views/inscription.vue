@@ -2,7 +2,7 @@
   <NavBar />
   <Dialog  />
   <el-main class="container " style="margin-top:40px">
-    <el-button text @click="() => modalStore.showDialogue = true">
+    <el-button text @click="showdialog">
       ajouter un etudiant
     </el-button>
     <el-table :data="filterTableData" style="width: 100%">
@@ -43,9 +43,7 @@
   import { useDataStore } from '../stores/data'
     const modalStore = useModalStore()
     const dataStrore= useDataStore()
-  defineProps({
-    Visible: Boolean
-  })
+  
   const Visible = ref(true)
  
   const search = ref('')
@@ -57,22 +55,30 @@
     )
   )
   const handleEdit = (index: number, row: User) => {
+    modalStore.titleDialog="edit"
     console.log(index, row)
-  
-  }
-const handleClick=( index: number, row: User)=>{
-// console.log(index, row)
-modalStore.showDialogue = true
-const data ={
+  modalStore.showDialogue = true
+  defineProps({
   name:row.name.value,
   niveau:row.name.value,
   annee:row.annee.value
- }
- dataStrore.form=data
+  })
+  
+ 
+  }
+const handleClick=( index: number, row: User)=>{
+// console.log(index, row)
+  
+  // alert(i)
+
+ 
 }
 
   
-  
+  const showdialog =()=>{
+     modalStore.showDialogue = true
+     modalStore.titleDialog="add"
+  }
   const confirmEvent = (index: number,row: User) => {
   
     dataStrore.tableData.splice(index,1)

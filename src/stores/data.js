@@ -5,6 +5,7 @@ export const useDataStore = defineStore('data', () => {
     const form = ref({
     
     })
+    
     const tableData = ref([{
         // date: '2016-05-03',
         name: 'Tom',

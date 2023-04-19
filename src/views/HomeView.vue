@@ -14,18 +14,10 @@
 </template>
 
 
-
-
 <script setup>
    import Footer from '../components/Footer.vue'
     import NavBar from '../components/NavBar.vue'
    var x = localStorage.getItem('ms_username');
-
-
- 
-
-
-
 
 </script>
 <style scoped>
