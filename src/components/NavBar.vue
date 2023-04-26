@@ -25,6 +25,7 @@
       <el-menu-item ><router-link to="/about">Les étudiant</router-link></el-menu-item>
       <el-menu-item ><router-link  to="/profile">profile</router-link></el-menu-item>
       <el-menu-item ><router-link  to="/inscription">inscription</router-link></el-menu-item>
+      <el-menu-item ><router-link  to="/data">data </router-link></el-menu-item>
       <!-- <el-menu-item > -->
         <el-select v-model="$i18n.locale">
       <el-option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang.code">

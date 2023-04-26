@@ -4,7 +4,7 @@
     style="text-align:center;color:#FFFFFF">
     <el-form :label-position="labelPosition" label-width="100px" :model="formdata" style="max-width: 460px">
       <el-form-item style="color:#FFFFFF" label="Nom" prop="nom">
-        <el-input v-model="formdata.nom" placeholder="your name" name="name" />
+        <el-input v-model="formdata.name" placeholder="your name" name="name" />
         <!-- <Inscr :name="name" /> -->
       </el-form-item>
       <el-form-item label="Niveau " prop="niveau">
@@ -33,7 +33,7 @@
 
 <script lang="ts" setup>
   import {
-    ref
+    ref,reactive
   } from 'vue'
   import {
     useModalStore
@@ -44,12 +44,16 @@
   // import Inscr from '../views/inscription.vue'
   const modalStore = useModalStore()
   const dataStrore = useDataStore()
+console.log(dataStrore.Fdata);
+console.log(dataStrore.Fdata);
+console.log(dataStrore.Fdata);
+
 
   const outerVisible = ref(false)
-  const formdata = ref({
-    nom: '',
-    niveau: '',
-    annee: ''
+  const formdata = reactive({
+    name: dataStrore.Fdata.name,
+    niveau: dataStrore.Fdata.niveau,
+    annee: dataStrore.Fdata.annee
   })
   const add = () => {
     const data = {

@@ -54,15 +54,30 @@
       data.name.toLowerCase().includes(search.value.toLowerCase())
     )
   )
-  const handleEdit = (index: number, row: User) => {
+  const handleEdit = (index: number, row) => {
     modalStore.titleDialog="edit"
     console.log(index, row)
+     dataStrore.Fdata.name=row.name
+  dataStrore.Fdata.niveau=row.niveau
+  dataStrore.Fdata.annee=row.annee
+  console.log( dataStrore.Fdata);
+  console.log( dataStrore.Fdata);
+  console.log( dataStrore.Fdata);
+  console.log( dataStrore.Fdata);
   modalStore.showDialogue = true
-  defineProps({
-  name:row.name.value,
-  niveau:row.name.value,
-  annee:row.annee.value
-  })
+  // dataStrore.Fdata.name=row.name
+  // dataStrore.Fdata.niveau=row.niveau
+  // dataStrore.Fdata.annee=row.annee
+  // console.log( dataStrore.Fdata);
+  // console.log( dataStrore.Fdata);
+  // console.log( dataStrore.Fdata);
+  // console.log( dataStrore.Fdata);
+  
+  // defineProps({
+   // name:row.name.value,
+  // niveau:row.name.value,
+  // annee:row.annee.value
+  // })
   
  
   }

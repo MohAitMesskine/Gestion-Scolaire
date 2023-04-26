@@ -5,6 +5,12 @@ export const useDataStore = defineStore('data', () => {
     const form = ref({
     
     })
+
+    const Fdata=ref({
+      name:'',
+      niveau:'',
+      annee:''
+    })
     
     const tableData = ref([{
         // date: '2016-05-03',
@@ -40,5 +46,5 @@ export const useDataStore = defineStore('data', () => {
     count.value++
   }
 
-  return { form, tableData, doubleCount, increment }
+  return { form,Fdata ,tableData, doubleCount, increment }
 })
